@@ -37,3 +37,11 @@ Type a company name to start a screening; type `exit` or `quit` to leave.
   `web_search` tool so it can check things like existing QIA stakes, recent
   financials, litigation, and sentiment, and streams each turn to the
   terminal in a simple multi-turn chat loop.
+
+---
+
+## Also in this repo: Live Avatar
+
+[`live-avatar/`](live-avatar/) is a hands-free voice chat with Claude Opus 5.5,
+shown as a realistic, lip-synced 3D human avatar. See its
+[README](live-avatar/README.md).
