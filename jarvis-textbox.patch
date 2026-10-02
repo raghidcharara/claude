@@ -1,0 +1,157 @@
+diff --git a/src/App.tsx b/src/App.tsx
+index b55024e..d3009dd 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -3,6 +3,7 @@ import { Scene } from './scene/Scene'
+ import { Hud } from './ui/Hud'
+ import { Boot } from './ui/Boot'
+ import { Ignition } from './ui/Ignition'
++import { TypeBox } from './ui/TypeBox'
+ import { Diagnostics } from './ui/Diagnostics'
+ import { useStore } from './store'
+ import { startVoice, type Voice, type VoiceMode } from './lib/voice'
+@@ -308,6 +309,15 @@ export default function App() {
+     void respond(said)
+   }
+ 
++  /** Typed, not spoken. Interrupts like speech does, and skips the wake word. */
++  const onTyped = (text: string) => {
++    const phase = store.getState().phase
++    if (phase === 'offline' || phase === 'boot') return
++    store.getState().setError(null)
++    onSpeechStart()
++    void respond(text)
++  }
++
+   const onPartial = (text: string) => {
+     store.getState().setCaption(text)
+   }
+@@ -702,6 +712,7 @@ export default function App() {
+       <Boot />
+       <Diagnostics />
+       <Ignition onStart={() => void powerOn()} />
++      <TypeBox onSend={onTyped} />
+     </>
+   )
+ }
+diff --git a/src/index.css b/src/index.css
+index 38a9b66..c87d8db 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -1896,3 +1896,57 @@ kbd {
+   transform: scaleX(-1);
+   background: #000;
+ }
++
++/* The typed way in. Outside .hud, which is pointer-events: none, and above the
++   scanline overlay so it can actually be clicked. */
++.typebox {
++  position: fixed;
++  left: 50%;
++  bottom: 10px;
++  transform: translateX(-50%);
++  z-index: 6;
++  display: flex;
++  gap: 6px;
++  width: min(620px, calc(100vw - 32px));
++  font-family: 'Chakra Petch', system-ui, sans-serif;
++}
++
++.typebox input {
++  flex: 1;
++  min-width: 0;
++  padding: 7px 12px;
++  background: rgba(1, 12, 22, 0.78);
++  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
++  border-radius: 3px;
++  color: #e6fbff;
++  font: inherit;
++  font-size: 13px;
++  letter-spacing: 0.02em;
++  outline: none;
++}
++
++.typebox input::placeholder {
++  color: color-mix(in srgb, var(--accent) 55%, transparent);
++}
++
++.typebox input:focus {
++  border-color: var(--accent);
++  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 35%, transparent);
++}
++
++.typebox button {
++  padding: 0 14px;
++  background: color-mix(in srgb, var(--accent) 16%, transparent);
++  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
++  border-radius: 3px;
++  color: var(--accent);
++  font: inherit;
++  font-size: 10px;
++  letter-spacing: 0.18em;
++  cursor: pointer;
++}
++
++.typebox button:disabled {
++  opacity: 0.4;
++  cursor: default;
++}
+diff --git a/src/ui/TypeBox.tsx b/src/ui/TypeBox.tsx
+new file mode 100644
+index 0000000..e00d0e0
+--- /dev/null
++++ b/src/ui/TypeBox.tsx
+@@ -0,0 +1,53 @@
++import { useState } from 'react'
++import { useStore } from '../store'
++
++/**
++ * A keyboard way in.
++ *
++ * Voice is the point, but some things are miserable to say aloud — a URL, an
++ * address, a name the recogniser keeps mangling — and some rooms are the wrong
++ * place to talk. Whatever is typed here goes down exactly the same path as a
++ * finished utterance, so it can interrupt him the way speaking does.
++ *
++ * The global shortcuts (Space, V, G, D, T, Escape) already ignore keys aimed at
++ * an INPUT, so typing here never triggers them.
++ */
++export function TypeBox({ onSend }: { onSend: (text: string) => void }) {
++  const phase = useStore((s) => s.phase)
++  const [text, setText] = useState('')
++
++  if (phase === 'offline' || phase === 'boot') return null
++
++  const send = () => {
++    const said = text.trim()
++    if (!said) return
++    setText('')
++    onSend(said)
++  }
++
++  return (
++    <form
++      className="typebox"
++      onSubmit={(e) => {
++        e.preventDefault()
++        send()
++      }}
++    >
++      <input
++        type="text"
++        value={text}
++        onChange={(e) => setText(e.target.value)}
++        onKeyDown={(e) => {
++          if (e.key === 'Escape') (e.target as HTMLInputElement).blur()
++        }}
++        placeholder="Type or paste a link, then press Enter"
++        aria-label="Message JARVIS"
++        autoComplete="off"
++        spellCheck={false}
++      />
++      <button type="submit" disabled={!text.trim()}>
++        SEND
++      </button>
++    </form>
++  )
++}
