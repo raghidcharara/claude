@@ -12,8 +12,8 @@
   | Ali AP | U7 Pro | ch 6 / 20 | ch 100 / 80 (DFS; radar moved it to 132/40 once) | auto / 160 |
 - Min RSSI: −78 dBm (2.4), −75 dBm (5/6). Min data rate 12 Mbps (RWC, JR), 6 Mbps (IOT). Fast roaming on.
 - Wi-Fi networks: RWC, JR (WPA3, MLO on, all bands), IOT (2.4 GHz WPA2).
-- Known issue: UDM port 3 had ~4.9 M receive errors (0.38%) → replace cable/switch.
-- Internet: bursts of packet loss (up to ~30%) on Vodafone line (Oct 26–28, Nov 15–16 2026).
+- UDM port 3 shows ~4.9 M receive errors (0.38%), but the count did not grow between 07:30 and 14:30 UTC on 17 Nov 2026 → old errors, monitor only.
+- Internet: bursts of packet loss (up to ~30%) on Vodafone line (Oct 26–28, Nov 15–17 2026; still 5–18% in many 5-min windows on 17 Nov afternoon). Latency stays 3 ms. Main open issue.
 
 ## Beirut – Verdun 🇱🇧 (Lebanon)
 - ISP: OGERO, **300 / 95 Mbps** (maximum OGERO offers). UDM behind OGERO router.

@@ -24,8 +24,8 @@
 - Doha WAN plan speed 1500 → 1000 Mbps; WAN2 disabled at both homes.
 
 ## Open to-dos (manual)
-1. Replace Doha UDM port 3 cable (switch to APs); replace switch if errors continue.
+1. Doha UDM port 3: errors not increasing (checked 17 Nov afternoon) → only replace cable if the count grows.
 2. Switch both consoles from beta to Official release channel.
 3. Remove double NAT (bridge mode / DMZ on Vodafone and OGERO routers).
 4. UPS for Verdun UDM + Linksys switch.
-5. If Doha loss bursts continue, report to Vodafone with dates.
+5. Doha Vodafone packet loss still ongoing 17 Nov → restart ONT/router, check fibre/WAN cable, report to Vodafone.
