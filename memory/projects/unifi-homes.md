@@ -29,3 +29,9 @@
 3. Remove double NAT (bridge mode / DMZ on Vodafone and OGERO routers).
 4. UPS for Verdun UDM + Linksys switch.
 5. Doha Vodafone packet loss still ongoing 17 Nov → restart ONT/router, check fibre/WAN cable, report to Vodafone.
+
+## Sanity check 19 Nov 2026 (16:20 UTC)
+- Doha: all 4 APs restarted together ~13:27 UTC after admin logins; Entrance + Ali AP came back at **100 Mbps** links (were 1 Gbps). UDM port 3 errors rising again (4.93 M → 5.25 M).
+- Doha 6 GHz auto-picked ch 37 on JR, Master Bedroom and Ali AP (co-channel). Proposed fix: manual 160 MHz → JR 5, Master 37, Entrance 69, Ali 101 (awaiting approval).
+- Doha packet loss stopped after the internet reconnected ~04:30 UTC 19 Nov. Speed test 826 / 997 Mbps.
+- Verdun healthy; one short WAN drop and a power cut on 18 Nov.
