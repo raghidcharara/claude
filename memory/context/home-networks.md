@@ -6,10 +6,11 @@
 - Access points (WiFi 7, all wired via an unmanaged switch on UDM **port 3**):
   | AP | Model | 2.4 GHz | 5 GHz | 6 GHz |
   |----|-------|---------|-------|-------|
-  | Entrance | U7 Pro | ch 1 / 20 | ch 36 / 80 | auto / 160 |
-  | JR AP | U7 Pro Wall | ch 11 / 20 | ch 52 / 80 | auto / 160 |
-  | Master Bedroom | U7 Pro Wall | ch 1 / 20 | ch 149 / 80 | auto / 160 |
-  | Ali AP | U7 Pro | ch 6 / 20 | ch 100 / 80 (DFS; radar moved it to 132/40 once) | auto / 160 |
+  | Entrance | U7 Pro | ch 1 / 20 | ch 36 / 80 | (see below) |
+  | JR AP | U7 Pro Wall | ch 11 / 20 | ch 52 / 80 | (see below) |
+  | Master Bedroom | U7 Pro Wall | ch 1 / 20 | ch 149 / 80 | (see below) |
+  | Ali AP | U7 Pro | ch 6 / 20 | ch 100 / 80 (DFS; radar moved it to 132/40 once) | (see below) |
+- 6 GHz (since 19 Nov, 80 MHz fixed; Qatar allows ch 1-93 only): JR 5, Ali 21, Master Bedroom 37, Entrance 69.
 - Min RSSI: −78 dBm (2.4), −75 dBm (5/6). Min data rate 12 Mbps (RWC, JR), 6 Mbps (IOT). Fast roaming on.
 - Wi-Fi networks: RWC, JR (WPA3, MLO on, all bands), IOT (2.4 GHz WPA2).
 - UDM port 3 shows ~4.9 M receive errors (0.38%), but the count did not grow between 07:30 and 14:30 UTC on 17 Nov 2026 → old errors, monitor only.
@@ -30,6 +31,6 @@
 - Frequent power cuts → UPS recommended.
 
 ## Both homes
-- Consoles on **beta** release channel (should switch to Official manually).
+- Consoles on **beta** release channel by the user's choice (do not flag).
 - WAN2 disabled on both (was unplugged; it broke the built-in speed test).
 - Network app 6.0.17 / UniFi OS 6.0.130 (Nov 2026).

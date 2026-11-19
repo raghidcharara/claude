@@ -24,3 +24,4 @@ Owner of two homes with UniFi networks: **Doha, Qatar** and **Beirut (Verdun), L
 - Wants changes applied directly when approved ("do all the changes yourself")
 - Likes professional, visual dashboards
 - Country flags next to country names (🇶🇦 Qatar, 🇱🇧 Lebanon)
+- **Beta release channel on both consoles is the user's own choice — never flag or recommend changing it.**
