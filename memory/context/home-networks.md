@@ -1,7 +1,7 @@
 # Home networks
 
 ## Doha 🇶🇦 (Qatar)
-- ISP: Vodafone Qatar, plan **1 Gbps down / 1 Gbps up**. UDM WAN on port 9 (1 GbE) behind the Vodafone router.
+- ISP: Vodafone Qatar, plan **1 Gbps down / 1 Gbps up**. UDM WAN on port 9 (1 GbE) behind the Vodafone **Huawei** router at **192.168.1.1**; UDM WAN IP 192.168.1.42 (MAC e4:38:83:91:49:41).
 - Gateway: UDM Pro, LAN 192.168.0.0/24. IPS, ad blocking and family DNS filter on.
 - Access points (WiFi 7, all wired via an unmanaged switch on UDM **port 3**):
   | AP | Model | 2.4 GHz | 5 GHz | 6 GHz |
