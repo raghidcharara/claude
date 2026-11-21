@@ -63,3 +63,9 @@
 - User confirmed WhatsApp calls work via VPN.
 - Added "Snapchat via VPN" (AS395291: 104.193.185.0/24, 204.154.248.0/24, 204.154.250.0/24) and "Snapchat via VPN (domains)" (snapchat.com, snap.com, snapkit.com, snap-dev.net, sc-cdn.net, sc-static.net, sc-prod.net, sc-gw.com, sc-jpl.com, sc-corp.net, snapads.com, bitmoji.com, feelinsonice-hrd.appspot.com), all devices, via PIA DE, kill switch off.
 - Snapchat mostly runs on Google Cloud/AWS, so the domain rule does most of the work; if calls still fail, next step is adding observed call-server IPs.
+
+## Snapchat calls fix (21 Nov 2026, Doha)
+- [stated] User tested Snapchat voice/video calls: they did not go through the VPN.
+- Router traffic log (09:23 Doha) showed the call between Ali iPhone 17 and Jr iPhone 18 Pro used Snapchat relay 63.177.140.74 (AWS Frankfurt) and its IPv6 twin 2a05:d014:…, on UDP 3478/19302/443 and TCP 23405, straight over Vodafone. No DNS lookup, so the domain rule could not see it; IPv6 also bypasses PIA (no IPv6 support).
+- Added route "Snapchat calls via VPN (call ports)": all public IPv4 blocks (54 entries, private ranges excluded) on ports 3478, 19302, 23405, plus 63.177.140.74 on all ports, via PIA DE. UniFi rejects /1 or wider blocks.
+- Turned off IPv6 on the Doha Default LAN (ipv6_interface_type pd → none) so nothing can bypass the VPN over IPv6. Phones drop their IPv6 address after reconnecting to Wi-Fi.
