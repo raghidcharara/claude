@@ -43,4 +43,5 @@
 
 ## 21 Nov 2026 follow-up
 - Doha speed test fixed by user: WAN1 only (wan_list WAN), daily 06:00.
-- Doha JR AP: 5 GHz and 6 GHz transmit power Auto → High, min RSSI −75 → −80 dBm (only this AP), to keep Jr's devices off 2.4 GHz.
+- Doha JR AP: 5/6 GHz power set to High, but live power stayed 18/17 dBm (already at the legal limit for Qatar; no gain). Min RSSI −75 → −80 dBm on JR AP 5/6 GHz.
+- Doha RWC network: 5 GHz roaming assistant −75 → −80 dBm, so Jr's devices aren't pushed to 2.4 GHz.
