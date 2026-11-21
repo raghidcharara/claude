@@ -45,3 +45,9 @@
 - Doha speed test fixed by user: WAN1 only (wan_list WAN), daily 06:00.
 - Doha JR AP: 5/6 GHz power set to High, but live power stayed 18/17 dBm (already at the legal limit for Qatar; no gain). Min RSSI −75 → −80 dBm on JR AP 5/6 GHz.
 - Doha RWC network: 5 GHz roaming assistant −75 → −80 dBm, so Jr's devices aren't pushed to 2.4 GHz.
+
+## WhatsApp via VPN (21 Nov 2026, Doha)
+- Created traffic routes "WhatsApp via VPN" (Meta AS32934: 34 IPv4 + 2 IPv6 ranges) and "WhatsApp via VPN (domains)", all devices, via **PIA DE**, kill switch off.
+- **All 4 PIA OpenVPN clients are down: status CONNECTING, error SERVER_REJECT** (likely expired PIA subscription or wrong login/old .ovpn). Until fixed, WhatsApp falls back to the normal line.
+- Old disabled rules (VPN, WhatsApp, Full IP list, New IP List) not deleted: delete was blocked; user to remove manually.
+- Phones need WhatsApp → Privacy → Advanced → "Protect IP address in calls" ON so calls go via Meta relays.
