@@ -27,3 +27,4 @@ Owner of two homes with UniFi networks: **Doha, Qatar** and **Beirut (Verdun), L
 - **Beta release channel on both consoles is the user's own choice — never flag or recommend changing it.**
 - **Verdun UPS: user has one; it sometimes fails and nobody is home to fix it. Postponed until summer 2027 — do not raise it as an action.**
 - No Ethernet cables or AP moves possible in Doha Jr's room — solve with Wi-Fi settings only.
+- **Zoom, Google Meet and Microsoft Teams must never go through any VPN** (he uses them heavily and needs the fastest direct connection). Check every new VPN rule against Microsoft AS8075, Google AS15169/AS396982 and Zoom AS30103 before applying.

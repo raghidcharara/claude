@@ -70,3 +70,8 @@
 - Added route "Snapchat calls via VPN (call ports)": all public IPv4 blocks (54 entries, private ranges excluded) on ports 3478, 19302, 23405, plus 63.177.140.74 on all ports, via PIA DE. UniFi rejects /1 or wider blocks.
 - Turned off IPv6 on the Doha Default LAN (ipv6_interface_type pd → none) so nothing can bypass the VPN over IPv6. Phones drop their IPv6 address after reconnecting to Wi-Fi.
 - [stated] 21 Nov 2026: user retested Snapchat calls and confirmed they work. Router log confirms the call media to relay 63.177.140.74 (UDP 443) went via PIA DE; IPv6 traffic from phones tailing off after IPv6 was turned off.
+
+## Zoom / Meet / Teams kept off the VPN (21 Nov 2026)
+- [stated] Zoom, Google Meet and Microsoft Teams must stay direct (no VPN), fastest connection.
+- The broad Snapchat call-port rule (all public IPv4 on 3478/19302/23405) also caught Teams (3478) and Meet (19302). Narrowed it and renamed it "Snapchat calls via VPN (relays)": AWS EC2 eu-central-1 + eu-west-1 ranges only (136 prefixes, from ip-ranges.amazonaws.com) on ports 3478/19302/23405, plus 63.177.140.74 all ports.
+- Checked: no active VPN rule overlaps Microsoft AS8075, Google AS15169/AS396982 or Zoom AS30103, and no VPN domain contains zoom/teams/microsoft/google/meet. Google-network traffic seen via VPN earlier was only Snapchat's own Google Cloud servers (gcp.api.snapchat.com etc.), not Meet.
