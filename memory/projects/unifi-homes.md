@@ -92,3 +92,9 @@
   - Name rules switched off/on to clear learned addresses (an "on" call timed out once; retried, all 5 rules active)
 - Re-audit (4 min): 90 VPN connections, 79 WhatsApp + 11 Snapchat, 0 other; Microsoft traffic direct.
 - If a WhatsApp or Snapchat call later skips the VPN, a new relay address is in use: find it in the traffic log and add that single address.
+
+## WhatsApp calls failing (21 Nov 2026, ~7:25 pm Doha)
+- [stated] WhatsApp voice/video calls from his phone to Ali (inside home) and to Tania did not connect.
+- Cause: calls used new relays not in the exact-address list (185.60.217.52, 157.240.17.62, 157.240.203.62, 57.144.223.54, 57.144.249.54) on UDP/TCP 3478 via Vodafone. WhatsApp picks a different relay per call, so exact lists cannot keep up.
+- Fix (7:28 pm): rule renamed "WhatsApp servers and call relays via VPN", 4,041 entries following Meta's server numbering: in every /24 of 157.240.0.0/16, 31.13.64.0/18, 31.13.24.0/21, 185.60.216.0/22 the addresses .48, .50-.51, .52-.55, .56-.59, .60-.61, .62 (.49 left out: Facebook used 157.240.29.49); in every /24 of 57.144.0.0/14 the addresses .32 and .54; plus all relays seen so far.
+- Checked: none of the 33 Facebook/Instagram addresses seen today is inside the pattern; no overlap with Microsoft/Google/Zoom. Instagram still direct after the change.
