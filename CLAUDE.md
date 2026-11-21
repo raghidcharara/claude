@@ -28,3 +28,4 @@ Owner of two homes with UniFi networks: **Doha, Qatar** and **Beirut (Verdun), L
 - **Verdun UPS: user has one; it sometimes fails and nobody is home to fix it. Postponed until summer 2027 — do not raise it as an action.**
 - No Ethernet cables or AP moves possible in Doha Jr's room — solve with Wi-Fi settings only.
 - **Zoom, Google Meet and Microsoft Teams must never go through any VPN** (he uses them heavily and needs the fastest direct connection). Check every new VPN rule against Microsoft AS8075, Google AS15169/AS396982 and Zoom AS30103 before applying.
+- **Instagram and Facebook browsing must stay direct (no VPN)**; only WhatsApp goes via VPN. Never route Meta's whole network (AS32934) on port 443.

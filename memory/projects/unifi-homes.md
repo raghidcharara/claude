@@ -75,3 +75,9 @@
 - [stated] Zoom, Google Meet and Microsoft Teams must stay direct (no VPN), fastest connection.
 - The broad Snapchat call-port rule (all public IPv4 on 3478/19302/23405) also caught Teams (3478) and Meet (19302). Narrowed it and renamed it "Snapchat calls via VPN (relays)": AWS EC2 eu-central-1 + eu-west-1 ranges only (136 prefixes, from ip-ranges.amazonaws.com) on ports 3478/19302/23405, plus 63.177.140.74 all ports.
 - Checked: no active VPN rule overlaps Microsoft AS8075, Google AS15169/AS396982 or Zoom AS30103, and no VPN domain contains zoom/teams/microsoft/google/meet. Google-network traffic seen via VPN earlier was only Snapchat's own Google Cloud servers (gcp.api.snapchat.com etc.), not Meet.
+
+## Instagram / Facebook kept off the VPN (21 Nov 2026, ~5:20 pm Doha)
+- [stated] Instagram on the Mac Mini was slow; Instagram and Facebook browsing must not go through the VPN.
+- Cause: "WhatsApp via VPN" covered all of Meta AS32934 on all ports, so Instagram/Facebook went via PIA DE (and were served from Frankfurt CDN). Also the WhatsApp domain rule included whatsapp.com and similar, which share Meta's main edge server (157.240.29.22, star.c10r.facebook.com).
+- Fix: renamed the address rule "WhatsApp calls via VPN (Meta call ports)": Meta's 34 IPv4 ranges on UDP/TCP ports 3478, 45395, 50318, 59234 only (IPv6 entries dropped). Domain rule "WhatsApp via VPN (domains)" reduced to whatsapp.net only, then switched off/on to clear learned addresses.
+- Verified in the traffic log: Instagram and Facebook now leave via Vodafone; whatsapp.net still via PIA DE.
