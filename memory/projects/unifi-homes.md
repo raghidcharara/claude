@@ -26,7 +26,7 @@
 ## Open to-dos (manual)
 1. Doha UDM port 3: errors not increasing (checked 17 Nov afternoon) → only replace cable if the count grows.
 3. Remove double NAT (bridge mode / DMZ on Vodafone and OGERO routers).
-4. UPS for Verdun UDM + Linksys switch.
+4. Verdun UPS: postponed until summer 2027 (user's decision).
 5. Doha Vodafone packet loss still ongoing 17 Nov → restart ONT/router, check fibre/WAN cable, report to Vodafone.
 
 ## Sanity check 19 Nov 2026 (16:20 UTC)
@@ -40,3 +40,7 @@
 - Doha scheduled speed test fails daily: mode "ALL" also tests disabled WAN2 (eth9) and that failure overwrites the result. Manual test fine (826/997). Verdun has the same "ALL" setting.
 - Doha Jr's room weakest: Jr MacMini −72 dBm at ~55 Mbps (still needs cable), Jr PS5 −72 dBm.
 - Verdun: healthy; another power cut ~20 Nov (Rooms + Entrance restarted).
+
+## 21 Nov 2026 follow-up
+- Doha speed test fixed by user: WAN1 only (wan_list WAN), daily 06:00.
+- Doha JR AP: 5 GHz and 6 GHz transmit power Auto → High, min RSSI −75 → −80 dBm (only this AP), to keep Jr's devices off 2.4 GHz.

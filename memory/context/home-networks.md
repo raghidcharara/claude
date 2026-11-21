@@ -30,7 +30,7 @@
   | Entrance | U6 LR | ch 1 / 20, power Medium | ch 157 / 40 |
 - Min RSSI −78 dBm everywhere; min data rate 12 Mbps. DFS off.
 - Wi-Fi networks: RWC (WPA2, fast roaming), RWC Guest (guest isolation on).
-- Frequent power cuts → UPS recommended.
+- Frequent power cuts. UPS exists but sometimes fails; fix postponed to summer 2027.
 
 ## Both homes
 - Consoles on **beta** release channel by the user's choice (do not flag).

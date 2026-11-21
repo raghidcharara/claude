@@ -25,3 +25,5 @@ Owner of two homes with UniFi networks: **Doha, Qatar** and **Beirut (Verdun), L
 - Likes professional, visual dashboards
 - Country flags next to country names (🇶🇦 Qatar, 🇱🇧 Lebanon)
 - **Beta release channel on both consoles is the user's own choice — never flag or recommend changing it.**
+- **Verdun UPS: user has one; it sometimes fails and nobody is home to fix it. Postponed until summer 2027 — do not raise it as an action.**
+- No Ethernet cables or AP moves possible in Doha Jr's room — solve with Wi-Fi settings only.
