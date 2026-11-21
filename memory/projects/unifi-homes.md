@@ -34,3 +34,9 @@
 - Doha 6 GHz auto channels overlapped (JR+Ali on 37, Entrance+Master in 65-93). Qatar allows only 6 GHz ch 1-93 (three 160 MHz blocks), so set **80 MHz fixed**: JR 5, Ali 21, Master 37, Entrance 69 (applied 19 Nov). All 4 AP links back at 1 Gbps by 16:40 UTC.
 - Doha packet loss stopped after the internet reconnected ~04:30 UTC 19 Nov. Speed test 826 / 997 Mbps.
 - Verdun healthy; one short WAN drop and a power cut on 18 Nov.
+
+## Health check 21 Nov 2026 (04:00 UTC)
+- Doha: all APs on 1 Gbps links, all channels as planned. Port 3 errors stopped (+520 in 36 h vs millions before) → cable fixed. Zero packet loss since 19 Nov morning.
+- Doha scheduled speed test fails daily: mode "ALL" also tests disabled WAN2 (eth9) and that failure overwrites the result. Manual test fine (826/997). Verdun has the same "ALL" setting.
+- Doha Jr's room weakest: Jr MacMini −72 dBm at ~55 Mbps (still needs cable), Jr PS5 −72 dBm.
+- Verdun: healthy; another power cut ~20 Nov (Rooms + Entrance restarted).
