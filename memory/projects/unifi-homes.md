@@ -52,3 +52,9 @@
 - **Fixed 21 Nov:** PIA DE now uses PIA generator file de_berlin UDP 1197 / RSA-4096 / AES-256-GCM, with `ncp-disable` replaced by `data-ciphers AES-256-GCM:AES-128-GCM` (UniFi's OpenVPN 2.6 rejects ncp-disable). Status CONNECTED. All four Doha PIA clients now on PIA generator UDP 1197 / RSA-4096 / AES-256-GCM files (same ncp-disable fix), all CONNECTED: PIA DE = Berlin (used by WhatsApp routes), PIA FR = France, PIA USA = New York, PIA SG = Singapore (slot formerly PIA QA). If one shows SERVER_REJECT right after a file change, switch it off and on once.
 - Old disabled rules (VPN, WhatsApp, Full IP list, New IP List) not deleted: delete was blocked; user to remove manually.
 - Phones need WhatsApp → Privacy → Advanced → "Protect IP address in calls" ON so calls go via Meta relays.
+
+## Doha health check 21 Nov 2026 (05:20 UTC)
+- All green: 4 APs online on 1 Gbps links, channels as planned, max airtime 28% (Entrance 2.4 GHz, mostly neighbours), zero packet loss for 2+ days, port 3 errors not increasing.
+- 4 PIA tunnels CONNECTED, WhatsApp routes active via PIA DE. Router CPU ~23% (VPN encryption), fine.
+- Speed test 730 down / 944 up Mbps with household in use (earlier 826/997).
+- Jr's room improved after JR AP / roaming changes: Jr Tab S9+ and Jr iPhone 18 Pro now on 5 GHz; 23 of 25 devices at −70 dBm or better.
