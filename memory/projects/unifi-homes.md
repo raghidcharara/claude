@@ -48,6 +48,7 @@
 
 ## WhatsApp via VPN (21 Nov 2026, Doha)
 - Created traffic routes "WhatsApp via VPN" (Meta AS32934: 34 IPv4 + 2 IPv6 ranges) and "WhatsApp via VPN (domains)", all devices, via **PIA DE**, kill switch off.
-- **All 4 PIA OpenVPN clients are down: status CONNECTING, error SERVER_REJECT** (likely expired PIA subscription or wrong login/old .ovpn). Until fixed, WhatsApp falls back to the normal line.
+- PIA login was fine (PC app works on OpenVPN UDP 8080, AES-128-GCM, RSA-4096). The old PIA files (UDP 1198, AES-128-CBC, RSA-2048) were rejected by UniFi's OpenVPN.
+- **Fixed 21 Nov:** PIA DE now uses PIA generator file de_berlin UDP 1197 / RSA-4096 / AES-256-GCM, with `ncp-disable` replaced by `data-ciphers AES-256-GCM:AES-128-GCM` (UniFi's OpenVPN 2.6 rejects ncp-disable). Status CONNECTED. PIA FR/USA/QA still on old files and failing (not used).
 - Old disabled rules (VPN, WhatsApp, Full IP list, New IP List) not deleted: delete was blocked; user to remove manually.
 - Phones need WhatsApp → Privacy → Advanced → "Protect IP address in calls" ON so calls go via Meta relays.
