@@ -81,3 +81,14 @@
 - Cause: "WhatsApp via VPN" covered all of Meta AS32934 on all ports, so Instagram/Facebook went via PIA DE (and were served from Frankfurt CDN). Also the WhatsApp domain rule included whatsapp.com and similar, which share Meta's main edge server (157.240.29.22, star.c10r.facebook.com).
 - Fix: renamed the address rule "WhatsApp calls via VPN (Meta call ports)": Meta's 34 IPv4 ranges on UDP/TCP ports 3478, 45395, 50318, 59234 only (IPv6 entries dropped). Domain rule "WhatsApp via VPN (domains)" reduced to whatsapp.net only, then switched off/on to clear learned addresses.
 - Verified in the traffic log: Instagram and Facebook now leave via Vodafone; whatsapp.net still via PIA DE.
+
+## VPN audit (21 Nov 2026, ~5:40 pm Doha)
+- [stated] The VPN is only for WhatsApp and Snapchat; all other traffic must go direct.
+- Audit found ~700 of ~860 VPN connections in 90 min were Instagram/Facebook: **UniFi traffic routes ignore the port list on IP entries**, so "Meta call ports" still routed all Meta traffic, and the Snapchat "AWS EU ranges" rule could catch any site hosted in AWS Frankfurt/Ireland.
+- Rebuilt with exact addresses only (no ranges):
+  - "WhatsApp servers via VPN (exact addresses)": call relays 157.240.29.62, 31.13.69.62, 157.240.243.62, 31.13.86.48, 57.144.121.54, 57.144.69.54 and WhatsApp servers 157.240.29.60, 157.240.29.61, 157.240.227.60, 157.240.0.60, 57.144.249.32, 57.144.245.32 (none serve Facebook/Instagram in the logs)
+  - "Snapchat call relays via VPN (exact addresses)": 63.177.140.74, 3.66.122.104 (left out 74.125.250.129 = Google Meet and Cloudflare 162.159.207.0 / 141.101.90.1)
+  - Unchanged: "WhatsApp via VPN (domains)" = whatsapp.net; "Snapchat via VPN (domains)"; "Snapchat via VPN" (Snap AS395291, 3 x /24)
+  - Name rules switched off/on to clear learned addresses (an "on" call timed out once; retried, all 5 rules active)
+- Re-audit (4 min): 90 VPN connections, 79 WhatsApp + 11 Snapchat, 0 other; Microsoft traffic direct.
+- If a WhatsApp or Snapchat call later skips the VPN, a new relay address is in use: find it in the traffic log and add that single address.
