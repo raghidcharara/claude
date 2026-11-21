@@ -58,3 +58,8 @@
 - 4 PIA tunnels CONNECTED, WhatsApp routes active via PIA DE. Router CPU ~23% (VPN encryption), fine.
 - Speed test 730 down / 944 up Mbps with household in use (earlier 826/997).
 - Jr's room improved after JR AP / roaming changes: Jr Tab S9+ and Jr iPhone 18 Pro now on 5 GHz; 23 of 25 devices at −70 dBm or better.
+
+## Snapchat via VPN (21 Nov 2026, Doha)
+- User confirmed WhatsApp calls work via VPN.
+- Added "Snapchat via VPN" (AS395291: 104.193.185.0/24, 204.154.248.0/24, 204.154.250.0/24) and "Snapchat via VPN (domains)" (snapchat.com, snap.com, snapkit.com, snap-dev.net, sc-cdn.net, sc-static.net, sc-prod.net, sc-gw.com, sc-jpl.com, sc-corp.net, snapads.com, bitmoji.com, feelinsonice-hrd.appspot.com), all devices, via PIA DE, kill switch off.
+- Snapchat mostly runs on Google Cloud/AWS, so the domain rule does most of the work; if calls still fail, next step is adding observed call-server IPs.
