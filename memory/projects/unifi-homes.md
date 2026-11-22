@@ -104,3 +104,9 @@
 - Real Vodafone outages: internet down 2:33 to 2:47 am Doha (14 min, "WAN failed" after packet loss at 2:32) and a short drop at 3:06 am; 4% packet loss around 3:00 am. Otherwise 6 single 1% loss blips over 24 h.
 - No equipment problem: UDM up since Wed, all 4 APs up since Thu 19:21, all on 1 Gbps, CPU 1-6% (the 4,041-entry WhatsApp rule causes no load). All 4 PIA tunnels connected. Speed test 06:06 today: 872/955 Mbps.
 - Wi-Fi disconnect spike at 2 am matches the outage; Tania's phone shows normal roaming only.
+
+## Roaming fix 22 Nov 2026 (Tania's WhatsApp calls dropping while walking)
+- Evidence: Tania S25+ was dropped at 11:21 am on 6 GHz at exactly -75 dBm (the minimum-signal kick level). 5 of 8 6 GHz disconnects in 24 h were at -73 to -80 dBm. Her phone otherwise roams fine (48 roams, 3 drops).
+- Change: minimum signal (min RSSI) on 5 and 6 GHz from -75 to **-82 dBm** on Entrance, Master Bedroom and Ali AP. JR AP left at -80 (Jr's room setting). 2.4 GHz stays -78.
+- Already on: fast roaming (802.11r), BSS transition (802.11v), WPA3, MLO on RWC.
+- Next step if drops continue: turn off MLO on RWC (known to hurt roaming on some phones).
