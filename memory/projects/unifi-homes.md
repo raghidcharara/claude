@@ -99,3 +99,8 @@
 - Fix (7:28 pm): rule renamed "WhatsApp servers and call relays via VPN", 4,041 entries following Meta's server numbering: in every /24 of 157.240.0.0/16, 31.13.64.0/18, 31.13.24.0/21, 185.60.216.0/22 the addresses .48, .50-.51, .52-.55, .56-.59, .60-.61, .62 (.49 left out: Facebook used 157.240.29.49); in every /24 of 57.144.0.0/14 the addresses .32 and .54; plus all relays seen so far.
 - Checked: none of the 33 Facebook/Instagram addresses seen today is inside the pattern; no overlap with Microsoft/Google/Zoom. Instagram still direct after the change.
 - [stated] ~7:30 pm: he retested WhatsApp voice/video calls (to Ali and Tania) after the pattern rule and confirmed they work ("all good").
+
+## Overnight check 22 Nov 2026 (asked after Tania reported interruptions)
+- Real Vodafone outages: internet down 2:33 to 2:47 am Doha (14 min, "WAN failed" after packet loss at 2:32) and a short drop at 3:06 am; 4% packet loss around 3:00 am. Otherwise 6 single 1% loss blips over 24 h.
+- No equipment problem: UDM up since Wed, all 4 APs up since Thu 19:21, all on 1 Gbps, CPU 1-6% (the 4,041-entry WhatsApp rule causes no load). All 4 PIA tunnels connected. Speed test 06:06 today: 872/955 Mbps.
+- Wi-Fi disconnect spike at 2 am matches the outage; Tania's phone shows normal roaming only.
